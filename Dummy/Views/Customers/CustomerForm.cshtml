@@ -1,0 +1,34 @@
+﻿@model Dummy.ViewModel.CustomerFormViewModel
+@{
+	ViewData["Title"] = "Save";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Save Customer</h2>
+
+@using (Html.BeginForm("Save", "Customers"))
+{
+	<div class="form-group mt-lg-2">
+		@Html.LabelFor(m => m.Customer.Name)
+		@Html.TextBoxFor(m => m.Customer.Name, new { @class="form-control" })
+		@Html.ValidationMessageFor(m => m.Customer.Name)
+	</div>
+	<div class="form-group mt-lg-2">
+		@Html.LabelFor(m => m.Customer.BirthDate)
+		@Html.TextBoxFor(m => m.Customer.BirthDate,"{0:d MMM yyyy}", new { @class="form-control" })
+	</div>
+	<div class="form-group mt-lg-2">
+		@Html.LabelFor(m => m.Customer.MembershipTypeId)
+		@Html.DropDownListFor(m => m.Customer.MembershipTypeId,new SelectList(Model.MembershipTypes, "Id","Name"),"Select MemberShip Type", new { @class="form-control" })
+		@Html.ValidationMessageFor(m => m.Customer.MembershipTypeId)
+
+	</div>
+	<div class="mt-lg-4">
+		<lable>
+			@Html.CheckBoxFor(m => m.Customer.IsSubscriberToNewsletter) Subscriber To Savesletter?
+		</lable>
+	</div>
+	@Html.HiddenFor(m => m.Customer.Id)
+	<button class="btn btn-primary mt-lg-2">Save</button>
+}

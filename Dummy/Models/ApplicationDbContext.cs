@@ -6,5 +6,8 @@ namespace Dummy.Models
 	{
 		public DbSet<Customers> Customers { get; set; }
 		public DbSet<Movies> Movies { get; set; }
+
+		public DbSet<MembershipType> MemberShipTypes { get; set; }
+		public DbSet<Genre> Genres { get; set; }
 	}
 }
