@@ -78,6 +78,7 @@ namespace Dummy.Controllers
             return RedirectToAction("GetCustomer", "Customers");
         }
 
+
         public IActionResult Edit(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
