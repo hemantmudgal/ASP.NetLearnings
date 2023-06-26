@@ -90,7 +90,7 @@ namespace Dummy.Controllers
                 Customer = customer,
                 MembershipTypes = _context.MemberShipTypes.ToList()
             };
-            return View("CustomerForm", viewModel);
+            return View("CustomerForm", viewModel); 
         }
     }
 }
